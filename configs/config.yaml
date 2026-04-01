@@ -1,0 +1,82 @@
+project:
+  name: medical-insurance-risk
+  version: "2.0.0"
+  description: "Clinical risk classification — high-cost insurance patient prediction (charges > P75)"
+
+paths:
+  raw_data: data/raw/medical_insurance.csv
+  processed_data: data/processed/features.parquet
+  model_dir: artifacts/models/
+  metrics_dir: artifacts/metrics/
+  plots_dir: artifacts/plots/
+  logs_dir: logs/
+
+data:
+  target: is_high_risk
+  # ── Leakage audit ──────────────────────────────────────────────────────────
+  # is_high_risk = charges > P75. Any feature derived from charges is hard leakage.
+  # Structural leakage: bmi_category = exact bin of bmi; smoker_flag = copy of smoker;
+  # sex_female = copy of sex; region_* = copies of region; age_group = bin of age.
+  drop_columns:
+    - record_date
+    - charges             # direct target source — hard leakage
+    - monthly_premium_est # derived from charges
+    - charges_per_child   # derived from charges
+    - insurance_tier      # derived from charges
+    - risk_score          # derived from charges
+    - high_risk_threshold # audit metadata
+    - bmi_category        # deterministic bin of bmi
+    - smoker_flag         # duplicate of smoker
+    - sex_female          # duplicate of sex
+    - region_northeast    # redundant with region
+    - region_northwest
+    - region_southeast
+    - region_southwest
+    - year
+    - quarter
+    - age_group           # bin of age
+  categorical_features:
+    - sex
+    - smoker
+    - region
+  numeric_features:
+    - age
+    - bmi
+    - children
+    - bmi_age_interaction
+  binary_features: []
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+
+model:
+  name: xgboost
+  params:
+    n_estimators: 300
+    max_depth: 5
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    scale_pos_weight: 3.0   # 1003 neg / 334 pos ≈ 3.0
+    eval_metric: auc
+    random_state: 42
+
+  cv_folds: 5
+  scoring: roc_auc
+
+training:
+  early_stopping_rounds: 30
+  save_model: true
+  model_filename: risk_classifier_v2.pkl
+
+serving:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 2
+  reload: false
+
+azure:
+  resource_group: rg-ml-insurance
+  container_registry: mlinsuranceacr
+  app_name: insurance-risk-api
+  location: eastus

@@ -1,0 +1,29 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir \
+    streamlit==1.45.0 \
+    httpx==0.28.1 \
+    pandas==2.2.2 \
+    matplotlib==3.8.4 \
+    seaborn==0.13.2 \
+    numpy==1.26.4
+
+COPY streamlit_app/app.py streamlit_app/app.py
+COPY data/raw/medical_insurance.csv data/raw/medical_insurance.csv
+COPY artifacts/plots/ artifacts/plots/
+
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+EXPOSE 8501
+
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"
+
+CMD ["streamlit", "run", "streamlit_app/app.py", \
+     "--server.port=8501", \
+     "--server.address=0.0.0.0", \
+     "--server.headless=true", \
+     "--browser.gatherUsageStats=false"]

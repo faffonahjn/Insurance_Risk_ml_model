@@ -1,0 +1,97 @@
+2026-03-31 02:59:58,192 | INFO | __main__ | ============================================================
+2026-03-31 02:59:58,193 | INFO | __main__ | TRAINING PIPELINE START
+2026-03-31 02:59:58,193 | INFO | __main__ | ============================================================
+2026-03-31 02:59:58,209 | INFO | src.data.loader | Loaded 1,337 records from data/raw/medical_insurance.csv
+2026-03-31 02:59:58,211 | INFO | src.data.loader | Features: 17 | Target: is_high_risk | Class balance: 62.45% positive
+2026-03-31 02:59:58,218 | INFO | src.features.engineer | Preprocessor built | cat=5 | num=4 | bin=6
+2026-03-31 03:00:14,636 | INFO | __main__ | ============================================================
+2026-03-31 03:00:14,637 | INFO | __main__ | TRAINING PIPELINE START
+2026-03-31 03:00:14,637 | INFO | __main__ | ============================================================
+2026-03-31 03:00:14,661 | INFO | src.data.loader | Loaded 1,337 records from data/raw/medical_insurance.csv
+2026-03-31 03:00:14,663 | INFO | src.data.loader | Features: 17 | Target: is_high_risk | Class balance: 62.45% positive
+2026-03-31 03:00:14,668 | INFO | src.features.engineer | Preprocessor built | cat=5 | num=4 | bin=6
+2026-03-31 03:00:17,370 | INFO | src.models.trainer | CV AUC: 1.0000 ± 0.0000
+2026-03-31 03:00:17,976 | INFO | src.models.trainer | Test AUC: 1.0 | AP: 1.0
+2026-03-31 03:00:17,989 | INFO | src.models.trainer | Model saved → artifacts/models/risk_classifier_v1.pkl
+2026-03-31 03:00:17,990 | INFO | src.models.trainer | Metrics saved → artifacts/metrics/evaluation_metrics.json
+2026-03-31 03:00:18,277 | INFO | src.evaluation.metrics | ROC curve saved → artifacts/plots/roc_curve.png
+2026-03-31 03:00:18,483 | INFO | src.evaluation.metrics | PR curve saved → artifacts/plots/pr_curve.png
+2026-03-31 03:00:18,775 | INFO | src.evaluation.metrics | Confusion matrix saved → artifacts/plots/confusion_matrix.png
+2026-03-31 03:00:19,248 | INFO | src.evaluation.metrics | Feature importance saved → artifacts/plots/feature_importance.png
+2026-03-31 03:00:19,248 | INFO | __main__ | ============================================================
+2026-03-31 03:00:19,248 | INFO | __main__ | TRAINING COMPLETE | AUC: 1.0 | AP: 1.0
+2026-03-31 03:00:19,248 | INFO | __main__ | ============================================================
+2026-03-31 11:17:49,394 | INFO | __main__ | ============================================================
+2026-03-31 11:17:49,395 | INFO | __main__ | TRAINING PIPELINE START
+2026-03-31 11:17:49,395 | INFO | __main__ | ============================================================
+2026-03-31 11:17:49,412 | INFO | src.data.loader | Loaded 1,337 records from data/raw/medical_insurance.csv
+2026-03-31 11:17:49,414 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-03-31 11:17:49,417 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-03-31 11:17:53,742 | INFO | src.models.trainer | CV AUC: 0.8824 ± 0.0366
+2026-03-31 11:17:54,573 | INFO | src.models.trainer | Test AUC: 0.8994 | AP: 0.869
+2026-03-31 11:17:54,638 | INFO | src.models.trainer | Model saved → artifacts/models/risk_classifier_v2.pkl
+2026-03-31 11:17:54,639 | INFO | src.models.trainer | Metrics saved → artifacts/metrics/evaluation_metrics.json
+2026-03-31 11:17:54,866 | INFO | src.evaluation.metrics | ROC curve saved → artifacts/plots/roc_curve.png
+2026-03-31 11:17:55,045 | INFO | src.evaluation.metrics | PR curve saved → artifacts/plots/pr_curve.png
+2026-03-31 11:17:55,196 | INFO | src.evaluation.metrics | Confusion matrix saved → artifacts/plots/confusion_matrix.png
+2026-03-31 11:17:55,499 | INFO | src.evaluation.metrics | Feature importance saved → artifacts/plots/feature_importance.png
+2026-03-31 11:17:55,499 | INFO | __main__ | ============================================================
+2026-03-31 11:17:55,499 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8994 | AP: 0.869
+2026-03-31 11:17:55,499 | INFO | __main__ | ============================================================
+2026-04-01 00:22:26,580 | INFO | __main__ | ============================================================
+2026-04-01 00:22:26,581 | INFO | __main__ | TRAINING PIPELINE START
+2026-04-01 00:22:26,581 | INFO | __main__ | ============================================================
+2026-04-01 00:22:26,600 | INFO | src.data.loader | Loaded 1,337 records from data\raw\medical_insurance.csv
+2026-04-01 00:22:26,604 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-04-01 00:22:26,612 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-04-01 00:22:27,252 | INFO | src.models.trainer | CV AUC: 0.8793 � 0.0357
+2026-04-01 00:22:27,368 | INFO | src.models.trainer | Test AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:22:28,655 | INFO | __main__ | ============================================================
+2026-04-01 00:22:28,655 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:22:28,655 | INFO | __main__ | ============================================================
+2026-04-01 00:33:37,001 | INFO | __main__ | ============================================================
+2026-04-01 00:33:37,003 | INFO | __main__ | TRAINING PIPELINE START
+2026-04-01 00:33:37,003 | INFO | __main__ | ============================================================
+2026-04-01 00:33:37,020 | INFO | src.data.loader | Loaded 1,337 records from data\raw\medical_insurance.csv
+2026-04-01 00:33:37,023 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-04-01 00:33:37,030 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-04-01 00:33:37,724 | INFO | src.models.trainer | CV AUC: 0.8793 � 0.0357
+2026-04-01 00:33:37,842 | INFO | src.models.trainer | Test AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:33:38,848 | INFO | __main__ | ============================================================
+2026-04-01 00:33:38,848 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:33:38,848 | INFO | __main__ | ============================================================
+2026-04-01 00:46:44,144 | INFO | __main__ | ============================================================
+2026-04-01 00:46:44,144 | INFO | __main__ | TRAINING PIPELINE START
+2026-04-01 00:46:44,144 | INFO | __main__ | ============================================================
+2026-04-01 00:46:44,156 | INFO | src.data.loader | Loaded 1,337 records from data\raw\medical_insurance.csv
+2026-04-01 00:46:44,158 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-04-01 00:46:44,163 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-04-01 00:46:44,984 | INFO | src.models.trainer | CV AUC: 0.8793 � 0.0357
+2026-04-01 00:46:45,174 | INFO | src.models.trainer | Test AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:46:46,141 | INFO | __main__ | ============================================================
+2026-04-01 00:46:46,141 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8988 | AP: 0.8723
+2026-04-01 00:46:46,141 | INFO | __main__ | ============================================================
+2026-04-01 01:08:57,743 | INFO | __main__ | ============================================================
+2026-04-01 01:08:57,744 | INFO | __main__ | TRAINING PIPELINE START
+2026-04-01 01:08:57,744 | INFO | __main__ | ============================================================
+2026-04-01 01:08:57,770 | INFO | src.data.loader | Loaded 1,337 records from data\raw\medical_insurance.csv
+2026-04-01 01:08:57,773 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-04-01 01:08:57,784 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-04-01 01:08:58,599 | INFO | src.models.trainer | CV AUC: 0.8793 � 0.0357
+2026-04-01 01:08:58,771 | INFO | src.models.trainer | Test AUC: 0.8988 | AP: 0.8723
+2026-04-01 01:08:58,795 | INFO | src.models.trainer | Model saved -> artifacts\models\risk_classifier_v2.pkl
+2026-04-01 01:08:59,841 | INFO | __main__ | ============================================================
+2026-04-01 01:08:59,842 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8988 | AP: 0.8723
+2026-04-01 01:08:59,842 | INFO | __main__ | ============================================================
+2026-04-01 01:12:50,608 | INFO | __main__ | ============================================================
+2026-04-01 01:12:50,608 | INFO | __main__ | TRAINING PIPELINE START
+2026-04-01 01:12:50,608 | INFO | __main__ | ============================================================
+2026-04-01 01:12:50,623 | INFO | src.data.loader | Loaded 1,337 records from data\raw\medical_insurance.csv
+2026-04-01 01:12:50,624 | INFO | src.data.loader | Features: 7 | Target: is_high_risk | Class balance: 24.98% positive
+2026-04-01 01:12:50,628 | INFO | src.features.engineer | Preprocessor | cat=3 | num=4 | bin=0
+2026-04-01 01:12:51,370 | INFO | src.models.trainer | CV AUC: 0.8793 � 0.0357
+2026-04-01 01:12:51,541 | INFO | src.models.trainer | Test AUC: 0.8988 | AP: 0.8723
+2026-04-01 01:12:51,565 | INFO | src.models.trainer | Model saved -> artifacts\models\risk_classifier_v2.pkl
+2026-04-01 01:12:52,581 | INFO | __main__ | ============================================================
+2026-04-01 01:12:52,581 | INFO | __main__ | TRAINING COMPLETE | AUC: 0.8988 | AP: 0.8723
+2026-04-01 01:12:52,581 | INFO | __main__ | ============================================================
