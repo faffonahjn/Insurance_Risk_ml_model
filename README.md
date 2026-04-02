@@ -10,12 +10,24 @@
 [![Azure](https://img.shields.io/badge/Azure-Container%20Apps-blue?logo=microsoftazure)](https://azure.microsoft.com)
 [![Tests](https://img.shields.io/badge/Tests-21%20passing-brightgreen)](tests/)
 [![AUC](https://img.shields.io/badge/Test%20AUC-0.899-blue)](artifacts/metrics/)
+[![Live](https://img.shields.io/badge/API-Live%20on%20Azure-success?logo=microsoftazure)](https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io/docs)
+
+---
+
+## 🌐 Live Deployment
+
+| Service | URL |
+|---|---|
+| **API (Swagger UI)** | [https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io/docs](https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io/docs) |
+| **Health Check** | [https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io/health](https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io/health) |
+
+> Deployed on **Azure Container Apps** — East US region, auto-scaling 1-3 replicas, consumption-based pricing.
 
 ---
 
 ## 📌 Project Overview
 
-This project demonstrates a **production-grade clinical ML system** built from raw insurance data through to a deployed REST API and interactive dashboard. It was developed with the architectural discipline of a senior ML engineer — including a full **data leakage forensic audit**, clinically motivated target engineering, threshold sensitivity analysis, and SHAP explainability.
+This project demonstrates a **production-grade clinical ML system** built from raw insurance data through to a publicly deployed REST API and interactive dashboard. It was developed with the architectural discipline of a senior ML engineer — including a full **data leakage forensic audit**, clinically motivated target engineering, threshold sensitivity analysis, and SHAP explainability.
 
 **Clinical Problem:** Identify patients likely to incur high insurance costs (charges > 75th percentile / $16,658) from demographic and lifestyle features — enabling proactive risk stratification and care management.
 
@@ -152,7 +164,9 @@ pytest tests/ -v
 
 ## 🌐 API Reference
 
-**Base URL:** `http://localhost:8000`
+**Live Base URL:** `https://insurance-risk-api.redsand-37d94e81.eastus.azurecontainerapps.io`
+
+**Local Base URL:** `http://localhost:8000`
 
 ### GET /health
 ```json
@@ -244,6 +258,28 @@ ML_PROJECT/
 
 ---
 
+## ☁️ Azure Deployment
+
+The API is deployed on **Azure Container Apps** using a fully automated shell script.
+
+```bash
+# Prerequisites: Azure CLI installed and logged in
+az login
+bash scripts/setup_azure.sh
+```
+
+**What the script provisions:**
+
+| Resource | Detail |
+|---|---|
+| Resource Group | `rg-ml-insurance` — East US |
+| Container Registry | `mlinsuranceacr.azurecr.io` — Basic tier |
+| Container Apps Environment | `ml-insurance-env` — with Log Analytics |
+| Container App | `insurance-risk-api` — 1 CPU, 2Gi RAM, 1-3 replicas |
+| Ingress | External HTTPS — auto-provisioned TLS certificate |
+
+---
+
 ## 🖥️ Streamlit Dashboard
 
 The clinical dashboard provides four tabs:
@@ -256,22 +292,6 @@ The clinical dashboard provides four tabs:
 | ℹ️ Model Info | Architecture, metrics, leakage audit, threshold rationale |
 
 The sidebar shows live API health status and current decision threshold.
-
----
-
-## ☁️ Azure Deployment
-
-```bash
-# Prerequisites: az CLI installed and logged in
-az login
-bash scripts/setup_azure.sh
-```
-
-Provisions:
-- Azure Resource Group
-- Azure Container Registry (ACR)
-- Azure Container Apps environment
-- Deployed API with external ingress (auto-scaling 1-3 replicas)
 
 ---
 
